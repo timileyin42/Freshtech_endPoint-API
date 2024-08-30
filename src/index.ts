@@ -17,7 +17,7 @@ mongoose.connect(MONGO_URI, {})
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-// Use morgan to log requests
+// Use morgan to log requests on the server
 app.use(morgan('combined'));
 
 app.use(express.json());
