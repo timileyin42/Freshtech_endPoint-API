@@ -1,0 +1,10 @@
+//ignore this files
+
+.env
+node_modules/
+myenv/
+dist/
+hashpassword.js
+package-lock.json
+tsconfig.json
+package.json

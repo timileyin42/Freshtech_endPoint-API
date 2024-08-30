@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import morgan from 'morgan';
 
 dotenv.config();
 
@@ -12,10 +13,12 @@ if (!MONGO_URI) {
   throw new Error('MONGO_URI is not defined in the environment variables.');
 }
 
-mongoose.connect(MONGO_URI, {
-})
+mongoose.connect(MONGO_URI, {})
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
+
+// Use morgan to log requests
+app.use(morgan('combined'));
 
 app.use(express.json());
 
