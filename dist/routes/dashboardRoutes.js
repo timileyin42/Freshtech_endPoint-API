@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const dashboardController_1 = require("../controllers/dashboardController");
+const validationMiddleware_1 = require("../middleware/validationMiddleware");
+const dashboardValidation_1 = require("../validations/dashboardValidation");
+const authMiddleware_1 = require("../middleware/authMiddleware");
+const router = (0, express_1.Router)();
+router.use(authMiddleware_1.authMiddleware);
+router.get('/dashboard', dashboardController_1.getDashboard);
+router.post('/airtime-to-cash', (0, validationMiddleware_1.validate)(dashboardValidation_1.airtimeToCashSchema), dashboardController_1.airtimeToCash);
+exports.default = router;
